@@ -10,7 +10,7 @@ class ProdutoController extends Controller
     // retorna todos os todos os produtos na base de dados
     public function index()
     {
-        $produtos = Produto::all();
+        $produtos = Produto::orderBy('id', 'DESC')->get();
         return view('products.index', compact('produtos'));
     }
 
@@ -31,7 +31,7 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $request->flashOnly(['nome']);
-        Produto::create($request->all());
+        $produto = Produto::create($request->all());
         return redirect('/produtos')->withInput();
     }
 
