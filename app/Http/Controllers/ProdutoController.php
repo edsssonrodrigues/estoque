@@ -11,20 +11,20 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-        return view('index', compact('produtos'));
+        return view('products.index', compact('produtos'));
     }
 
     // retorna a view para criação de um novo produto
     public function create()
     {
-        return view('create');
+        return view('products.create');
     }
 
     // retorna um único produto, por meio de seu Id
     public function show($id)
     {
         $produto = Produto::find($id);
-        return view('show', compact('produto'));
+        return view('products.show', compact('produto'));
     }
 
     // recebe os dados da request e salva o produto na base de dados
@@ -39,7 +39,7 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         $produto = Produto::find($id);
-        return view('edit', compact('produto'));
+        return view('products.edit', compact('produto'));
     }
 
     // altera um produto existente na base de dados, por meio de seu Id
