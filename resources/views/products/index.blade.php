@@ -9,9 +9,9 @@
         <i class="fas fa-plus-circle"></i> Novo produto
     </a>
 
-    @if (old('nome'))
-        <div class="alert alert-info">
-            Produto <strong>{{ old('nome') }}</strong> adicionado com sucesso!
+    @if(!empty($mensagem))
+        <div class="alert alert-primary">
+            {{ $mensagem }}
         </div>
     @endif
 

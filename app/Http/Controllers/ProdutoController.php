@@ -8,10 +8,11 @@ use App\Produto;
 class ProdutoController extends Controller
 {
     // retorna todos os todos os produtos na base de dados
-    public function index()
+    public function index(Request $request)
     {
         $produtos = Produto::orderBy('id', 'DESC')->get();
-        return view('products.index', compact('produtos'));
+        $mensagem = $request->session()->get('mensagem');
+        return view('products.index', compact('produtos', 'mensagem'));
     }
 
     // retorna a view para criação de um novo produto
@@ -30,9 +31,9 @@ class ProdutoController extends Controller
     // recebe os dados da request e salva o produto na base de dados
     public function store(Request $request)
     {
-        $request->flashOnly(['nome']);
         $produto = Produto::create($request->all());
-        return redirect('/produtos')->withInput();
+        $request->session()->flash('mensagem', "Produto {$produto->nome} adicionado com sucesso!");
+        return redirect('/produtos');
     }
 
     // retorna a view para alteração de um produto produto existente
@@ -46,13 +47,15 @@ class ProdutoController extends Controller
     public function update(Request $request, $id) {
         $produto = Produto::find($id);
         $produto->update($request->all());
+        $request->session()->flash('mensagem', "Produto {$produto->nome} editado com sucesso!");
         return redirect('/produtos');
     }
 
     // remove um produto existente na base de dados, por meio de seu Id
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $produto = Produto::find($id);
+        $request->session()->flash('mensagem', "Produto {$produto->nome} removido com sucesso!");
         $produto->delete();
         return redirect('/produtos');
     }
