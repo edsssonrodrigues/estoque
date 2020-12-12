@@ -5,9 +5,14 @@
 @section('content')
     <h1 class="mt-3 mb-3">@parent</h1>
 
-    <a href="/produtos/create" class="btn btn-primary mb-3">
+    <a href="{{ route('form_cria_produto') }}" class="btn btn-primary mb-3">
         <i class="fas fa-plus-circle"></i> Novo produto
     </a>
+
+    {{-- trigger modal --}}
+    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal">
+        Modal
+    </button> --}}
 
     @if(!empty($mensagem))
         <div class="alert alert-primary">
@@ -55,4 +60,35 @@
             </tbody>
         </table>
     </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-danger">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja remover o produto?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Produto X
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+            <i class="fas fa-ban"></i> Cancelar
+          </button>
+          <button type="button" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Remover
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/products/remove-products.js') }}"></script>
 @endsection

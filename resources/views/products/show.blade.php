@@ -20,7 +20,7 @@
         </li>
     </ul>
 
-    <a href="/produtos" class="btn btn-outline-primary">
+    <a href="{{ route('lista_produtos') }}" class="btn btn-outline-primary">
         <i class="fas fa-arrow-left"></i> Retornar
     </a>
 @endsection

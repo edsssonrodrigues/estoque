@@ -1,9 +1,9 @@
 <?php
 
-Route::get('/produtos', 'ProdutoController@index');
-Route::get('/produtos/create', 'ProdutoController@create');
-Route::get('/produtos/{id}', 'ProdutoController@show');
-Route::post('/produtos', 'ProdutoController@store');
-Route::get('/produtos/{id}/edit', 'ProdutoController@edit');
-Route::put('/produtos/{id}', 'ProdutoController@update');
-Route::delete('/produtos/{id}', 'ProdutoController@destroy');
+Route::get('/produtos', 'ProdutoController@index')->name('lista_produtos');
+Route::get('/produtos/create', 'ProdutoController@create')->name('form_cria_produto');
+Route::get('/produtos/{id}', 'ProdutoController@show')->name('exibe_produto');
+Route::post('/produtos', 'ProdutoController@store')->name('cria_produto');
+Route::get('/produtos/{id}/edit', 'ProdutoController@edit')->name('form_edita_produto');
+Route::put('/produtos/{id}', 'ProdutoController@update')->name('edita_produto');
+Route::delete('/produtos/{id}', 'ProdutoController@destroy')->name('remove_produto');

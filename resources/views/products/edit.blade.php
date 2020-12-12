@@ -24,11 +24,11 @@
             <label for="quantidade">Quantidade:</label>
             <input type="number" min="0" name="quantidade" id="quantidade" class="form-control" value="{{ $produto->quantidade }}">
         </div>
+        <a href="{{ route('lista_produtos') }}" class="btn btn-outline-success">
+            <i class="fas fa-ban"></i> Cancelar
+        </a>
         <button type="submit" class="btn btn-success">
             <i class="fas fa-sync-alt"></i> Editar
         </button>
-        <a href="/produtos" class="btn btn-outline-success">
-            <i class="fas fa-arrow-left"></i> Retornar
-        </a>
     </form>
 @endsection
