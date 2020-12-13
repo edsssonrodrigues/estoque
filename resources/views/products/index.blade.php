@@ -9,11 +9,6 @@
         <i class="fas fa-plus-circle"></i> Novo produto
     </a>
 
-    {{-- trigger modal --}}
-    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal">
-        Modal
-    </button> --}}
-
     @if(!empty($mensagem))
         <div class="alert alert-primary">
             {{ $mensagem }}
@@ -46,13 +41,15 @@
                                 <a href="produtos/{{ $produto->id }}/edit" class="btn btn-sm btn-success mr-2">
                                     <i class="fas fa-sync-alt"></i>
                                 </a>
-                                <form action="produtos/{{ $produto->id }}" method="POST" class="mr-2">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-danger btn-delete"
+                                    data-toggle="modal"
+                                    data-target="#delete-modal"
+                                    data-id="{{ $produto->id }}"
+                                >
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -61,34 +58,28 @@
         </table>
     </div>
 
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-danger">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja remover o produto?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Delete modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-danger">
+                    <h5 class="modal-title" id="exampleModalLabel">Remover produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja remover o produto?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                        <i class="fas fa-ban"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Remover
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          Produto X
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
-            <i class="fas fa-ban"></i> Cancelar
-          </button>
-          <button type="button" class="btn btn-danger">
-            <i class="fas fa-trash-alt"></i> Remover
-          </button>
-        </div>
-      </div>
     </div>
-  </div>
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('js/products/remove-products.js') }}"></script>
 @endsection
