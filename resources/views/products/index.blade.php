@@ -41,15 +41,15 @@
                                 <a href="produtos/{{ $produto->id }}/edit" class="btn btn-sm btn-success mr-2">
                                     <i class="fas fa-sync-alt"></i>
                                 </a>
-                                <button
-                                    type="button"
+                                <a
+                                    href="#"
                                     class="btn btn-sm btn-danger btn-delete"
                                     data-toggle="modal"
                                     data-target="#delete-modal"
                                     data-id="{{ $produto->id }}"
                                 >
                                     <i class="fas fa-trash-alt"></i>
-                                </button>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -69,17 +69,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Tem certeza que deseja remover o produto?
+                    <p>Tem certeza que deseja remover o produto?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
-                        <i class="fas fa-ban"></i> Cancelar
-                    </button>
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Remover
-                    </button>
+                    <form action="" method="POST" id='form-delete'>
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                            <i class="fas fa-ban"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Remover
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/products/remove-product.js') }}"></script>
 @endsection
