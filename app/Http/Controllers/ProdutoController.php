@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoRequest;
 use App\Produto;
 
 class ProdutoController extends Controller
@@ -29,7 +30,7 @@ class ProdutoController extends Controller
     }
 
     // recebe os dados da request e salva o produto na base de dados
-    public function store(Request $request)
+    public function store(ProdutoRequest $request)
     {
         $produto = Produto::create($request->all());
         $request->session()->flash('mensagem', "Produto {$produto->nome} adicionado com sucesso!");
