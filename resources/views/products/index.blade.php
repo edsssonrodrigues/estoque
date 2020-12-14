@@ -15,6 +15,7 @@
         </div>
     @endif
 
+    @if(count($produtos))
     <div class="table-responsive table-responsive-lg">
         <table class="table table-bordered table-sm table-hover">
             <thead>
@@ -27,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($produtos as $produto)
+                @foreach($produtos as $produto)
                     <tr class="{{ $produto->quantidade <= 1 ? 'text-danger' : '' }}">
                         <td>{{ $produto->nome }}</td>
                         <td>{{ $produto->valor }}</td>
@@ -57,6 +58,9 @@
             </tbody>
         </table>
     </div>
+    @else
+    <h5>Sem produtos cadastrados no momento.</h5>
+    @endif
 
     <!-- Delete modal -->
     <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
