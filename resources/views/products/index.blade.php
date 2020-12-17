@@ -24,6 +24,7 @@
                     <th>Valor (R$)</th>
                     <th>Descrição</th>
                     <th>Quantidade</th>
+                    <th>Categoria</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                         <td>{{ $produto->valor }}</td>
                         <td>{{ $produto->descricao }}</td>
                         <td>{{ $produto->quantidade }}</td>
+                        <td>{{ $produto->categoria->nome }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="produtos/{{ $produto->id }}" class="btn btn-sm btn-primary mr-2">

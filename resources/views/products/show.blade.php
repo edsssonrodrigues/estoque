@@ -7,7 +7,7 @@
 
     <ul class="list-group mb-3">
         <li class="list-group-item active">
-            <span class="lead">{{ $produto->nome }}</span>
+            <strong class="lead">{{ $produto->nome }} ({{ $produto->categoria->nome }})</strong>
         </li>
         <li class="list-group-item">
             <strong>Valor:</strong> R$ {{ $produto->valor }}

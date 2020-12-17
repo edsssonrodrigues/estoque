@@ -27,7 +27,8 @@ class ProdutoRequest extends FormRequest
             'nome' => 'required|min:2',
             'valor' =>  'required|numeric',
             'descricao' =>  'required',
-            'quantidade' => 'required|numeric|min:1'
+            'quantidade' => 'required|numeric|min:1',
+            'categoria_id' => 'required'
         ];
     }
 
@@ -41,7 +42,8 @@ class ProdutoRequest extends FormRequest
         return [
             'required' => 'O campo :attribute é obrigatório!',
             'numeric' => 'O campo :attribute deve ter um valor numérico',
-            'quantidade.min' => 'O campo :attribute deve receber pelo menos :min!'
+            'quantidade.min' => 'O campo :attribute deve receber pelo menos :min!',
+            'categoria_id.required' => 'O campo categoria é obrigatório!'
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProdutoRequest;
 use App\Produto;
+use App\Categoria;
 
 class ProdutoController extends Controller
 {
@@ -19,7 +20,8 @@ class ProdutoController extends Controller
     // retorna a view para criação de um novo produto
     public function create()
     {
-        return view('products.create');
+        $categorias = Categoria::orderBy('id', 'DESC')->get();
+        return view('products.create', compact('categorias'));
     }
 
     // retorna um único produto, por meio de seu Id

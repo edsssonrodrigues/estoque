@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="/produtos" method="POST">
+    <form action="{{ route('cria_produto') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nome">Nome:</label>
@@ -34,9 +34,12 @@
             <input type="number" min="1" name="quantidade" id="quantidade" class="form-control" value="{{ old('quantidade') }}">
         </div>
         <div class="form-group">
-            <label for="categoria">Categoria:</label>
-            <select name="categoria" id="categoria" class="form-control" value="{{ old('categoria') }}">
+            <label for="categoria_id">Categoria:</label>
+            <select name="categoria_id" id="categoria_id" class="form-control" value="{{ old('categoria_id') }}">
                 <option value="">Selecione uma categoria</option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                @endforeach
             </select>
         </div>
         <a href="{{ route('lista_produtos') }}" class="btn btn-outline-primary">
