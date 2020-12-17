@@ -33,6 +33,12 @@
             <label for="quantidade">Quantidade:</label>
             <input type="number" min="1" name="quantidade" id="quantidade" class="form-control" value="{{ old('quantidade') }}">
         </div>
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria" class="form-control" value="{{ old('quantidade') }}">
+                <option value="">Selecione uma categoria</option>
+            </select>
+        </div>
         <a href="{{ route('lista_produtos') }}" class="btn btn-outline-primary">
             <i class="fas fa-ban"></i> Cancelar
         </a>
