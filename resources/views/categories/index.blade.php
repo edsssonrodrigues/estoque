@@ -22,9 +22,6 @@
                     {{ $categoria->nome }}
 
                     <div class="options">
-                        <a href="categorias/{{ $categoria->id }}" class="btn btn-sm btn-primary mr-2">
-                            <i class="fas fa-search text-white"></i>
-                        </a>
                         <a href="categorias/{{ $categoria->id }}/edit" class="btn btn-sm btn-success mr-2">
                             <i class="fas fa-sync-alt"></i>
                         </a>

@@ -10,5 +10,6 @@ Route::delete('/produtos/{id}', 'ProdutoController@destroy')->name('remove_produ
 
 Route::get('/categorias', 'CategoriaController@index')->name('lista_categorias');
 Route::get('/categorias/create', 'CategoriaController@create')->name('form_cria_categoria');
-
 Route::post('/categorias', 'CategoriaController@store')->name('cria_categoria');
+Route::get('/categorias/{id}/edit', 'CategoriaController@edit')->name('form_edita_categoria');
+Route::patch('/categorias/{id}', 'CategoriaController@update')->name('edita_categoria');
