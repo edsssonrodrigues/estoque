@@ -8,4 +8,9 @@ class Produto extends Model
 {
     public $timestamps = false;
     protected $fillable = ['nome', 'valor', 'descricao', 'quantidade'];
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }
