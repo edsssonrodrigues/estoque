@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <select name="categoria" id="categoria" class="form-control" value="{{ old('quantidade') }}">
+            <select name="categoria" id="categoria" class="form-control" value="{{ old('categoria') }}">
                 <option value="">Selecione uma categoria</option>
             </select>
         </div>
