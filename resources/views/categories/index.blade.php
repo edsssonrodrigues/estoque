@@ -52,7 +52,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Tem certeza que deseja remover o categoria?</p>
+                    <p>Tem certeza que deseja remover a categoria?</p>
                 </div>
                 <div class="modal-footer">
                     <form action="" method="POST" id='form-delete'>
@@ -72,5 +72,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/products/remove-product.js') }}"></script>
+    <script src="{{ asset('js/products/remove-produtct.js') }}"></script>
 @endsection
