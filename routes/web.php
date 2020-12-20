@@ -20,3 +20,4 @@ Route::get('/categorias/create', 'CategoriaController@create')->name('form_cria_
 Route::post('/categorias', 'CategoriaController@store')->name('cria_categoria');
 Route::get('/categorias/{id}/edit', 'CategoriaController@edit')->name('form_edita_categoria');
 Route::patch('/categorias/{id}', 'CategoriaController@update')->name('edita_categoria');
+Route::delete('/categorias/{id}', 'CategoriaController@destroy')->name('remove_categoria');

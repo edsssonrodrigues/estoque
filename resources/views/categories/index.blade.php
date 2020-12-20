@@ -72,5 +72,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/products/remove-produtct.js') }}"></script>
+    <script src="{{ asset('js/categories/remove-category.js') }}"></script>
 @endsection

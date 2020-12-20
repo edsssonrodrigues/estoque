@@ -42,4 +42,12 @@ class CategoriaController extends Controller
         $request->session()->flash('mensagem', "Categoria {$categoria->nome} editada com sucesso!");
         return redirect(route('lista_categorias'));
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $categoria = Categoria::find($id);
+        $request->session()->flash('mensagem', "Categoria {$categoria->nome} removida com sucesso!");
+        $categoria->delete();
+        return redirect(route('lista_categorias'));
+    }
 }
