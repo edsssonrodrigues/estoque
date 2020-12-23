@@ -43,11 +43,17 @@ class CategoriaController extends Controller
         return redirect(route('lista_categorias'));
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request)
     {
-        $categoria = Categoria::find($id);
-        $request->session()->flash('mensagem', "Categoria {$categoria->nome} removida com sucesso!");
+        $categoria = Categoria::find($request->id);
+        $nomeCategoria = $categoria->nome;
+
+        $categoria->produtos->each(function($produto) {
+            $produto->delete();
+        });
         $categoria->delete();
+
+        $request->session()->flash('mensagem', "Categoria {$nomeCategoria} (e todos os seus produtos) removidos com sucesso!");
         return redirect(route('lista_categorias'));
     }
 }
