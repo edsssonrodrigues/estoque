@@ -47,7 +47,7 @@ class ProdutoController extends Controller
     }
 
     // altera um produto existente na base de dados, por meio de seu Id
-    public function update(Request $request, $id) {
+    public function update(ProdutoRequest $request, $id) {
         $produto = Produto::find($id);
         $produto->update($request->all());
         $request->session()->flash('mensagem', "Produto {$produto->nome} editado com sucesso!");
@@ -58,8 +58,8 @@ class ProdutoController extends Controller
     public function destroy(Request $request, $id)
     {
         $produto = Produto::find($id);
-        $request->session()->flash('mensagem', "Produto {$produto->nome} removido com sucesso!");
         $produto->delete();
+        $request->session()->flash('mensagem', "Produto {$produto->nome} removido com sucesso!");
         return redirect('/produtos');
     }
 }

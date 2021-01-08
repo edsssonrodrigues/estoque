@@ -9,17 +9,19 @@
         <i class="fas fa-plus-circle"></i> Nova categoria
     </a>
 
-    @if(!empty($mensagem))
-        <div class="alert alert-primary">
-            {{ $mensagem }}
-        </div>
-    @endif
-
     @if(count($categorias))
+        @if(!empty($mensagem))
+            <div class="alert alert-primary">
+                {{ $mensagem }}
+            </div>
+        @endif
+
         <ul class="list-group">
             @foreach($categorias as $categoria)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ $categoria->nome }}
+                    <strong>
+                        {{ $categoria->nome }}
+                    </strong>
 
                     <div class="options">
                         <a href="categorias/{{ $categoria->id }}/edit" class="btn btn-sm btn-success mr-2">
@@ -35,6 +37,7 @@
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </div>
+
             @endforeach
         </ul>
     @else
